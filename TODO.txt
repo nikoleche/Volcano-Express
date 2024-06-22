@@ -1,0 +1,51 @@
+[ ] Move files to template;
+[ ] init ic;
+[ ] Update main and add {{{body}}}. If each main has a different class, move main section to view, if not, leave main section in main.hbs;
+[ ] Update database name and start server;
+[ ] Update User model, userService, and jwt as per identity options;
+[ ] Test login, register, and token;
+[ ] Update anotherModel and anotherModelService;
+[ ] API test create, getAll, getById, update, deleteById, and special exam method likes, votes;
+[ ] Create home, user, and dashboard controllers, update configRoutes, and html files, and make a dashboard partial. Render dashboard to see the default error and then try rendering it with an array, then getAll();
+[ ] Fix details.html;
+[ ] Add details router to dashboard;
+[ ] Fix login and register. If users already exist, start with login;
+[ ] Fix login, login html, and add get logic to userController, make sure to add guards. Add to configRoutes and test login form;
+[ ] Add get register to userController, implement guard, add try-catch upon registration, and fix its html;
+[ ] Add post login and sanitize input;
+[ ] Add logout to userController;
+[ ] Add autofill to login.hbs form upon unsuccessful login;
+[ ] Add post register and validation
+[ ] Update register template with autofill upon error;
+[ ] Update details.hbs buttons depending on user, add user/owner logic in dashboardController;
+[ ] Create new controller for create, edit, and delete functions;
+[ ] Mount to configRoutes;
+[ ] Add * to configRoutes;
+[ ] Update create.html
+[ ] Add guards to the new controller, add get/post, and validation to create post, try-catch entry;
+[ ] Add edit get by id, check if owner and then post, fix html, edit form requires no ifs;
+[ ] Add delete to new controller and add try-catch to it;
+[ ] Add extra try-catch functionality from exam to new controller, edit html;
+[ ] Test extra functionality for proper errors;
+[ ] Implement bonus in dashboard, if search use get method in the form;
+[ ] Add bonus functionality to services;
+
+
+BONUS: profile page, show all posts by author
+
+async function getByAuthorId(authorId) {
+    return Item.find({author: authorId}).lean();
+}
+
+module.exports ={ getByAuthorId };
+
+add to controller
+
+pageRouter.get("/profilepage", async (req, res) => {
+    const allposts = await getByAuthorId(req.user._id);
+    res.render("profilepage", { allposts });
+})
+
+if need to show all courses the author has applied for
+
+await User.findById(id).populate("courses").lean();

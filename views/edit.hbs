@@ -1,0 +1,31 @@
+<section id="edit-container">
+    <div class="edit-container-info">
+        <h1>Edit Announcement</h1>
+        <form method="POST" name="edit-form">
+            <label>Name:</label>
+            <input type="text" id="name" name="name" placeholder="..." value="{{input.name}}">
+            <label>Location:</label>
+            <input type="text" id="location" name="location" placeholder="..."value="{{input.location}}">
+            <label>Elevation:</label>
+            <input type="number" id="elevations" name="elevation" placeholder="..."value="{{input.elevation}}">
+            <label>Year of Last Eruption:</label>
+            <input type="number" id="last-year-eruption" name="lastEruption" placeholder="..." value="{{input.lastEruption}}">
+            <label>Image:</label>
+            <input type="text" id="image" name="image" placeholder="http://..." value="{{input.image}}">
+            <label>Volcano Type:</label>
+            <select autocomplete="off" id="type" name="typeVolcano" value="{{input.typeVolcano}}" selected="{{input.typeVolcano}}">
+                <option value="{{input.typeVolcano}}" hidden="hidden" selected>{{input.typeVolcano}}</option>
+                <option value="Supervolcanoes">Supervolcanoes</option>
+                <option value="Submarine">Submarine</option>
+                <option value="Subglacial">Subglacial</option>
+                <option value="Mud">Mud</option>
+                <option value="Stratovolcanoes">Stratovolcanoes</option>
+                <option value="Shield">Shield</option>
+            </select>
+            <label>Description:</label>
+            <textarea id="description" name="description"
+                placeholder="...">{{input.description}}</textarea>
+            <input type="submit" id="btn" value="Submit"></input>
+        </form>
+    </div>
+</section>
